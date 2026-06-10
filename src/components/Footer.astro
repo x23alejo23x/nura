@@ -1,0 +1,77 @@
+---
+const year = new Date().getFullYear();
+const CTA_URL = 'https://app.nuravetcare.com/login';
+
+const links = {
+  Producto: ['Funciones', 'Precios', 'Seguridad', 'Actualizaciones'],
+  Empresa:  ['Sobre nosotros', 'Blog', 'Contacto', 'Términos de uso'],
+};
+---
+
+<footer style="padding: 4rem 0 2rem; background: var(--color-text); width: 100%;">
+  <div class="container">
+
+    <!-- Main grid -->
+    <div class="footer-grid" style="margin-bottom: 3rem;">
+
+      <!-- Brand column -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <!-- Logo -->
+        <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          <div style="width: 2rem; height: 2rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; background: var(--gradient-brand); flex-shrink: 0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 16V8a2 2 0 0 0-1-1.73l-6-3.46a2 2 0 0 0-2 0L5 6.27A2 2 0 0 0 4 8v8a2 2 0 0 0 1 1.73l6 3.46a2 2 0 0 0 2 0l6-3.46A2 2 0 0 0 20 16z"/>
+            </svg>
+          </div>
+          <span style="font-weight: 700; font-size: 1.1rem; color: #fff;">Nura <span style="background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">VetCare</span></span>
+        </a>
+        <!-- Tagline -->
+        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.65; max-width: 22rem;">
+          El software de gestión clínica veterinaria más completo de Latinoamérica. Diseñado para crecer contigo.
+        </p>
+        <!-- CTA -->
+        <a href={CTA_URL} style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient-brand); color: #fff; font-weight: 600; font-size: 0.875rem; padding: 0.625rem 1.25rem; border-radius: 0.625rem; text-decoration: none; width: fit-content; box-shadow: 0 4px 16px rgba(124,58,237,0.35); transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          Empieza gratis
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Link columns -->
+      {Object.entries(links).map(([category, items]) => (
+        <div>
+          <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;">
+            {category}
+          </p>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0; margin: 0;">
+            {items.map(item => (
+              <li>
+                <a href="#" style="font-size: 0.875rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.95)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Divider -->
+    <div style="height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 1.75rem;"></div>
+
+    <!-- Bottom bar -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+      <p style="font-size: 0.8rem; color: rgba(255,255,255,0.35);">
+        © {year} Nura VetCare. Todos los derechos reservados.
+      </p>
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <a href="#" style="font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacidad</a>
+        <a href="#" style="font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Términos</a>
+        <a href="#" style="font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Cookies</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

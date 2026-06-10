@@ -1,0 +1,94 @@
+---
+const stats = [
+  { value: '500+',  label: 'Clínicas activas',       icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+  { value: '98%',   label: 'Satisfacción cliente',   icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' },
+  { value: '50k+',  label: 'Pacientes gestionados',  icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
+  { value: '4.9★',  label: 'Rating promedio',        icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
+];
+
+const testimonials = [
+  {
+    name: 'Dra. Valentina Ríos',
+    role: 'Directora — Clínica Patitas Felices, Bogotá',
+    avatar: 'VR',
+    gradient: 'from-violet-500 to-purple-700',
+    text: 'Nura VetCare transformó por completo la manera en que gestionamos nuestra clínica. Los historiales digitales y los recordatorios automáticos nos ahorraron más de 3 horas diarias. Nuestros clientes están felices y nosotros también.',
+    stars: 5,
+  },
+  {
+    name: 'Dr. Alejandro Mora',
+    role: 'Veterinario — Hospital Animalitos, Medellín',
+    avatar: 'AM',
+    gradient: 'from-indigo-500 to-blue-600',
+    text: 'La calculadora de dosis es un salvavidas. Antes me preocupaba equivocarme con los pesos de cada especie. Ahora confío en el sistema y me enfoco en lo que me gusta: atender a mis pacientes.',
+    stars: 5,
+  },
+  {
+    name: 'Dra. Isabella Vargas',
+    role: 'Socia — VetGroup, Cali',
+    avatar: 'IV',
+    gradient: 'from-purple-500 to-violet-700',
+    text: 'Migramos 3 clínicas al mismo tiempo y el onboarding fue increíblemente fácil. El soporte es excelente y la plataforma es muy intuitiva. Nunca pensé que digitalizar sería tan sencillo.',
+    stars: 5,
+  },
+];
+---
+
+<section id="social-proof" style="padding: 6rem 0; background: var(--color-bg); width: 100%;">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="fade-up" style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-label">Resultados reales</span>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); margin-top: 1rem; line-height: 1.2;">
+        Más de 500 clínicas ya confían<br />
+        <span class="gradient-text">en Nura VetCare</span>
+      </h2>
+    </div>
+
+    <!-- Stats -->
+    <div class="glass-card stats-grid fade-up" style="padding: 2.5rem 2rem; margin-bottom: 4rem;">
+      {stats.map((s, i) => (
+        <div style="text-align: center; padding: 1rem;">
+          <!-- Icon -->
+          <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; background: rgba(124,58,237,0.1); margin-left: auto; margin-right: auto; margin-bottom: 0.75rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d={s.icon}/>
+            </svg>
+          </div>
+          <div style="font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 800; line-height: 1; margin-bottom: 0.35rem;" class="gradient-text">{s.value}</div>
+          <p style="font-size: 0.875rem; color: var(--color-text-muted); font-weight: 500;">{s.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials-grid">
+      {testimonials.map((t, i) => (
+        <div class={`glass-card fade-up fade-up-delay-${i + 1}`} style="padding: 1.75rem; display: flex; flex-direction: column; gap: 1.25rem;">
+          <!-- Stars -->
+          <div style="display: flex; gap: 0.2rem;">
+            {Array.from({ length: t.stars }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none">
+                <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+              </svg>
+            ))}
+          </div>
+          <!-- Quote -->
+          <p style="font-size: 0.9rem; line-height: 1.7; color: var(--color-text-2); flex: 1;">"{t.text}"</p>
+          <!-- Author -->
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style={`width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: #fff; background: var(--gradient-brand); flex-shrink: 0;`}>
+              {t.avatar}
+            </div>
+            <div>
+              <p style="font-weight: 700; font-size: 0.875rem; color: var(--color-text);">{t.name}</p>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

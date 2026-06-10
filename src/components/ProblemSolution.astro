@@ -1,0 +1,99 @@
+---
+const problems = [
+  'Historiales en papel que se pierden o dañan',
+  'Agenda desorganizada con dobles citas y olvidos',
+  'Medicaciones sin control ni cálculo de dosis seguro',
+  'Sin seguimiento post-consulta ni contacto con propietarios',
+];
+
+const solutions = [
+  'Historial digital completo, seguro y siempre disponible',
+  'Agenda inteligente con recordatorios automáticos',
+  'Calculadora de dosis integrada — sin errores, sin riesgos',
+  'Seguimientos y comunicación directa con el propietario',
+];
+---
+
+<section style="padding: 6rem 0; background: var(--color-bg); width: 100%;">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="fade-up" style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-label">El problema real</span>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); margin-top: 1rem; line-height: 1.2;">
+        Así se ve una clínica veterinaria<br />
+        <span class="gradient-text">sin el sistema adecuado</span>
+      </h2>
+    </div>
+
+    <!-- Two-column comparison -->
+    <div class="problem-grid" style="display: grid; gap: 2rem; align-items: start;">
+
+      <!-- Problems column -->
+      <div class="fade-up fade-up-delay-1">
+        <div style="border-radius: 1.25rem; overflow: hidden; border: 1px solid rgba(239,68,68,0.2); background: linear-gradient(135deg, #fff5f5, #fff);">
+          <!-- Card header -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.04)); border-bottom: 1px solid rgba(239,68,68,0.1);">
+            <div style="width: 2rem; height: 2rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; background: rgba(239,68,68,0.1); flex-shrink: 0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+            </div>
+            <p style="font-weight: 700; font-size: 0.95rem; color: #dc2626;">Sin Nura VetCare</p>
+          </div>
+          <!-- Card body -->
+          <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+            {problems.map(text => (
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <div style="margin-top: 0.125rem; flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(239,68,68,0.1);">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </div>
+                <p style="font-size: 0.875rem; line-height: 1.6; color: #6b7280;">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Solutions column -->
+      <div class="fade-up fade-up-delay-2">
+        <div style="border-radius: 1.25rem; overflow: hidden; border: 1px solid rgba(124,58,237,0.2); background: linear-gradient(135deg, #faf5ff, #fff);">
+          <!-- Card header -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(124,58,237,0.04)); border-bottom: 1px solid rgba(124,58,237,0.1);">
+            <div style="width: 2rem; height: 2rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; background: rgba(124,58,237,0.1); flex-shrink: 0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <p style="font-weight: 700; font-size: 0.95rem; color: var(--color-primary);">Con Nura VetCare</p>
+          </div>
+          <!-- Card body -->
+          <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+            {solutions.map(text => (
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <div style="margin-top: 0.125rem; flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(124,58,237,0.12);">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-2);">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom callout -->
+    <div class="fade-up fade-up-delay-3" style="margin-top: 3rem; text-align: center;">
+      <p style="font-size: 1.1rem; font-weight: 500; color: var(--color-text-muted);">
+        Miles de veterinarios ya tomaron la decisión.
+        <span style="font-weight: 700; color: var(--color-primary);">¿Cuándo lo haces tú?</span>
+      </p>
+    </div>
+
+  </div>
+</section>

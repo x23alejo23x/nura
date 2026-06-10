@@ -1,0 +1,96 @@
+---
+const features = [
+  {
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    title: 'Historia Clínica Digital',
+    desc: 'Registros completos de cada paciente: anamnesis, diagnósticos, tratamientos y evolución. Acceso instantáneo desde cualquier dispositivo.',
+    badge: 'Historial',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,0.1)',
+  },
+  {
+    icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    title: 'Agenda Inteligente',
+    desc: 'Gestión de citas con recordatorios automáticos por WhatsApp y correo. Elimina las doble-reservas y los olvidos.',
+    badge: 'Agenda',
+    color: '#4338ca',
+    bg: 'rgba(67,56,202,0.1)',
+  },
+  {
+    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+    title: 'Control de Medicaciones',
+    desc: 'Inventario actualizado, alertas de stock bajo y calculadora de dosis por peso. Cero errores, máxima seguridad clínica.',
+    badge: 'Medicaciones',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,0.1)',
+  },
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Gestión de Propietarios',
+    desc: 'Perfil completo de cada cliente con historial de mascotas, contacto y comunicación directa desde la plataforma.',
+    badge: 'Clientes',
+    color: '#4338ca',
+    bg: 'rgba(67,56,202,0.1)',
+  },
+  {
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    title: 'Reportes y Analítica',
+    desc: 'Dashboard con métricas clave: ingresos, pacientes activos, consultas por mes y tendencias de tu clínica.',
+    badge: 'Reportes',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,0.1)',
+  },
+  {
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+    title: 'Seguridad y Accesos',
+    desc: 'Roles por usuario (veterinario, asistente, admin), backups automáticos y cifrado de datos. Tu clínica, siempre protegida.',
+    badge: 'Seguridad',
+    color: '#4338ca',
+    bg: 'rgba(67,56,202,0.1)',
+  },
+];
+---
+
+<section id="features" style="padding: 6rem 0; background: var(--color-bg); width: 100%;">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="fade-up" style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-label">Funciones</span>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); margin-top: 1rem; line-height: 1.2;">
+        Todo lo que tu clínica necesita,<br />
+        <span class="gradient-text">en una sola plataforma</span>
+      </h2>
+      <p style="margin-top: 1rem; font-size: 1.05rem; color: var(--color-text-muted); max-width: 36rem; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Diseñado por veterinarios, para veterinarios. Cada función resuelve un problema real de la clínica.
+      </p>
+    </div>
+
+    <!-- Features grid -->
+    <div class="features-grid">
+      {features.map((f, i) => (
+        <div
+          class={`glass-card fade-up fade-up-delay-${(i % 3) + 1}`}
+          style="padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem;"
+        >
+          <!-- Icon box -->
+          <div style={`width: 3rem; height: 3rem; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; background: ${f.bg}; flex-shrink: 0;`}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={f.color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d={f.icon}/>
+            </svg>
+          </div>
+          <!-- Badge -->
+          <span style={`display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: ${f.color}; background: ${f.bg}; padding: 0.2rem 0.65rem; border-radius: 999px; width: fit-content;`}>
+            {f.badge}
+          </span>
+          <!-- Text -->
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.5rem;">{f.title}</h3>
+            <p style="font-size: 0.875rem; line-height: 1.65; color: var(--color-text-muted);">{f.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

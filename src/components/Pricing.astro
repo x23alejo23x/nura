@@ -1,0 +1,165 @@
+---
+const CTA_URL = 'https://app.nuravetcare.com/login';
+
+const plans = [
+  {
+    name: 'Starter',
+    price: '$29',
+    period: '/mes',
+    desc: 'Perfecto para clínicas pequeñas que empiezan a digitalizarse.',
+    features: [
+      'Hasta 3 usuarios',
+      'Hasta 200 pacientes',
+      'Historia clínica digital',
+      'Agenda básica',
+      'Soporte por correo',
+    ],
+    cta: 'Empezar gratis',
+    popular: false,
+    gradient: 'rgba(255,255,255,0.95)',
+    border: 'rgba(124,58,237,0.15)',
+  },
+  {
+    name: 'Profesional',
+    price: '$79',
+    period: '/mes',
+    desc: 'El plan más elegido. Todo lo que necesitas para crecer.',
+    features: [
+      'Hasta 10 usuarios',
+      'Pacientes ilimitados',
+      'Historia clínica + multimedia',
+      'Agenda + recordatorios automáticos',
+      'Control de medicaciones',
+      'Reportes y analítica',
+      'Soporte prioritario',
+    ],
+    cta: 'Empezar gratis',
+    popular: true,
+    gradient: 'var(--gradient-brand)',
+    border: 'transparent',
+  },
+  {
+    name: 'Clínica',
+    price: '$149',
+    period: '/mes',
+    desc: 'Para redes de clínicas y hospitales veterinarios.',
+    features: [
+      'Usuarios ilimitados',
+      'Multi-sede',
+      'Todo Profesional incluido',
+      'API e integraciones',
+      'Manager de cuenta dedicado',
+      'SLA garantizado',
+    ],
+    cta: 'Contactar ventas',
+    popular: false,
+    gradient: 'rgba(255,255,255,0.95)',
+    border: 'rgba(124,58,237,0.15)',
+  },
+];
+---
+
+<section id="pricing" style="padding: 6rem 0; background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-primary-light) 50%, var(--color-bg) 100%); width: 100%;">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="fade-up" style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-label">Planes y precios</span>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); margin-top: 1rem; line-height: 1.2;">
+        Sin sorpresas.<br />
+        <span class="gradient-text">Cancela cuando quieras.</span>
+      </h2>
+      <p style="margin-top: 1rem; font-size: 1.05rem; color: var(--color-text-muted);">14 días gratis en todos los planes. Sin tarjeta de crédito.</p>
+    </div>
+
+    <!-- Pricing grid -->
+    <div class="pricing-grid">
+      {plans.map((plan, i) => (
+        <div
+          class={`fade-up fade-up-delay-${i + 1}`}
+          style={`
+            position: relative;
+            border-radius: 1.5rem;
+            padding: 2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: ${plan.popular ? plan.gradient : plan.gradient};
+            border: 1.5px solid ${plan.border};
+            box-shadow: ${plan.popular ? '0 20px 60px rgba(124,58,237,0.35)' : '0 4px 24px rgba(124,58,237,0.08)'};
+            ${plan.popular ? 'transform: scale(1.03);' : ''}
+          `}
+        >
+          <!-- Popular badge -->
+          {plan.popular && (
+            <div style="position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); background: #fff; color: var(--color-primary); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 999px; box-shadow: 0 4px 12px rgba(124,58,237,0.25); white-space: nowrap;">
+              ⭐ Más popular
+            </div>
+          )}
+
+          <!-- Plan name + desc -->
+          <div>
+            <p style={`font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; color: ${plan.popular ? 'rgba(255,255,255,0.75)' : 'var(--color-primary)'};`}>
+              {plan.name}
+            </p>
+            <div style="display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem;">
+              <span style={`font-size: 2.5rem; font-weight: 800; line-height: 1; color: ${plan.popular ? '#fff' : 'var(--color-text)'};`}>{plan.price}</span>
+              <span style={`font-size: 0.9rem; font-weight: 500; color: ${plan.popular ? 'rgba(255,255,255,0.65)' : 'var(--color-text-muted)'};`}>{plan.period}</span>
+            </div>
+            <p style={`font-size: 0.875rem; line-height: 1.5; color: ${plan.popular ? 'rgba(255,255,255,0.8)' : 'var(--color-text-muted)'};`}>{plan.desc}</p>
+          </div>
+
+          <!-- Divider -->
+          <div style={`height: 1px; background: ${plan.popular ? 'rgba(255,255,255,0.2)' : 'var(--color-border)'};`}></div>
+
+          <!-- Features list -->
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0; margin: 0; flex: 1;">
+            {plan.features.map(feat => (
+              <li style="display: flex; align-items: center; gap: 0.625rem;">
+                <div style={`width: 1.125rem; height: 1.125rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: ${plan.popular ? 'rgba(255,255,255,0.2)' : 'rgba(124,58,237,0.1)'};`}>
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke={plan.popular ? '#fff' : '#7c3aed'} stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span style={`font-size: 0.875rem; color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--color-text-2)'};`}>{feat}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA button -->
+          <a
+            href={CTA_URL}
+            style={`
+              display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+              padding: 0.875rem 1.5rem;
+              border-radius: 0.75rem;
+              font-weight: 600;
+              font-size: 0.95rem;
+              text-decoration: none;
+              transition: opacity 0.2s, transform 0.2s;
+              ${plan.popular
+                ? 'background: #fff; color: var(--color-primary);'
+                : 'background: var(--gradient-brand); color: #fff; box-shadow: 0 4px 16px rgba(124,58,237,0.3);'}
+            `}
+          >
+            {plan.cta}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Money-back note -->
+    <div class="fade-up fade-up-delay-4" style="margin-top: 3rem; text-align: center;">
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Sin riesgos · 14 días gratis · Sin tarjeta de crédito · Cancela cuando quieras
+      </p>
+    </div>
+
+  </div>
+</section>
