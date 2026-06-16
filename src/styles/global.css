@@ -189,12 +189,138 @@ section {
 .fade-up-delay-4 { transition-delay: 0.4s; }
 .fade-up-delay-5 { transition-delay: 0.5s; }
 
-/* ── Gradient text ──────────────── */
+/* ── Gradient text (animado) ──────────────── */
 .gradient-text {
-  background: var(--gradient-brand);
+  background: linear-gradient(120deg, #7c3aed, #4338ca, #a855f7, #6366f1, #7c3aed);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-pan 6s ease infinite;
+}
+
+@keyframes gradient-pan {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Fondo aurora animado ────────────────── */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
+.aurora::before {
+  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,0.45), transparent 60%);
+  top: -20vmax;
+  left: -10vmax;
+  animation: aurora-1 18s ease-in-out infinite;
+}
+
+.aurora::after {
+  background: radial-gradient(circle at 70% 70%, rgba(67,56,202,0.40), transparent 60%);
+  bottom: -25vmax;
+  right: -10vmax;
+  animation: aurora-2 22s ease-in-out infinite;
+}
+
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(15vmax, 10vmax) scale(1.15); }
+  66%      { transform: translate(-8vmax, 18vmax) scale(0.9); }
+}
+
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-14vmax, -10vmax) scale(1.1); }
+  66%      { transform: translate(10vmax, -16vmax) scale(0.95); }
+}
+
+/* ── Blobs flotantes ─────────────────────── */
+.blob-float { animation: blob-float 9s ease-in-out infinite; }
+.blob-float-slow { animation: blob-float 14s ease-in-out infinite reverse; }
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(20px, -28px) scale(1.08); }
+}
+
+/* ── Gradiente animado del hero ──────────── */
+.animated-hero-bg {
+  background: linear-gradient(160deg, #f2eeff 0%, #ede8ff 25%, #e8e2ff 50%, #efe9ff 75%, #f2eeff 100%);
+  background-size: 200% 200%;
+  animation: hero-pan 16s ease infinite;
+}
+
+@keyframes hero-pan {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ── Flotación suave (badges / tarjetas) ── */
+.float-y { animation: float-y 5s ease-in-out infinite; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* ── Punto pulsante (estado activo) ──────── */
+.pulse-dot { position: relative; }
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.4;
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── Brillo deslizante (shimmer) en botón ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-20deg);
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { left: -75%; }
+  60%  { left: 130%; }
+  100% { left: 130%; }
 }
 
 /* ── CTA Button ─────────────────── */
@@ -272,5 +398,16 @@ section {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .gradient-text,
+  .aurora::before,
+  .aurora::after,
+  .blob-float,
+  .blob-float-slow,
+  .animated-hero-bg,
+  .float-y,
+  .pulse-dot::after,
+  .btn-primary::after {
+    animation: none !important;
   }
 }
